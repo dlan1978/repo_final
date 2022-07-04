@@ -1,0 +1,35 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+
+{% block contenido %}
+   
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">nombre</th>
+            <th scope="col">camada</th>            
+          </tr>
+        </thead>
+        <tbody>
+            {% for n in cursos %}
+            <tr>
+                <th scope="row">{{n.id}}</th>
+                <td>{{n.nombre}}</td>
+                <td>{{n.camada}}</td> 
+                <td><a href="{% url 'elimina_curso' n.id %}">BORRAR</a></td>
+                <td><a href="{% url 'editar_curso' n.id %}">EDITAR</a></td>
+
+            </tr>
+            {% endfor %}        
+          
+        </tbody>
+      </table>
+      <button>
+        <a href="alta_curso">Agregar otro curso</a>"
+      </button>
+    {% endblock %}
+

@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block contenido %}
+{%if request.user.is_autthenticated%}
+
+    <h3 style="color:green">
+        {{mensaje}}
+    </h3>
+    
+    </table>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <table>
+            {{ crear_comentario.as_table }}
+
+        </table>
+
+        <input type="submit" value="Comentar">
+
+    </form>
+
+    {% endif %}
+
+    
+</body>
+</html>
